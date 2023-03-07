@@ -56,7 +56,7 @@ async def start_handle(update: Update, context: CallbackContext):
     db.set_user_attribute(user_id, "last_interaction", datetime.now())
     db.start_new_dialog(user_id)
     
-    reply_text = "Hi! I'm <b>ChatGPT</b> bot implemented with GPT-3.5 OpenAI API 🤖\n\n"
+    reply_text = "Hi! I'm <b>ChatGPT</b> bot implemented with GPT-3.5 OpenAI API  Created By AB. KAIUM!\n\n"
     reply_text += HELP_MESSAGE
 
     reply_text += "\nAnd now... ask me anything!"
@@ -78,7 +78,7 @@ async def retry_handle(update: Update, context: CallbackContext):
 
     dialog_messages = db.get_dialog_messages(user_id, dialog_id=None)
     if len(dialog_messages) == 0:
-        await update.message.reply_text("No message to retry 🤷‍♂️")
+        await update.message.reply_text("No message to retry ")
         return
 
     last_dialog_message = dialog_messages.pop()
@@ -210,7 +210,7 @@ async def show_balance_handle(update: Update, context: CallbackContext):
 
 
 async def edited_message_handle(update: Update, context: CallbackContext):
-    text = "🥲 Unfortunately, message <b>editing</b> is not supported"
+    text = " Unfortunately, message <b>editing</b> is not supported"
     await update.edited_message.reply_text(text, parse_mode=ParseMode.HTML)
 
 
